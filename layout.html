@@ -32,7 +32,7 @@
         <span class="cl-btn" onclick="closeNotificationPopup()">&times;</span>
         <h2>Expiration Alerts</h2>
         <ul id="notificationList">
-            <!-- Alerts will be inserted dynamically -->
+            
             <li><img src="https://cdn-icons-png.flaticon.com/512/24/24901.png" alt="alert icon" class="alert-icon"> Product 1 is about to expire in 2 days.</li>
             <li><img src="https://cdn-icons-png.flaticon.com/512/24/24901.png" alt="alert icon" class="alert-icon"> Product 2 is about to expire in 2 days.</li>
             <li><img src="https://cdn-icons-png.flaticon.com/512/24/24901.png" alt="alert icon" class="alert-icon"> Product 3 is about to expire in 2 days.</li>
@@ -55,9 +55,8 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
                 <br><br>
-                <label>
-                    <input type="checkbox" id="rememberMe" name="rememberMe"> Remember Me
-                </label>
+                <label for="contact">Contact Number:</label>
+                <input type="tel" id="contact" name="contact" pattern="[0-9]{10}" required>
                 <br><br>
                 <button type="submit">Sign In</button>
             </form>
@@ -99,7 +98,7 @@
          <input type="date" id="dateExpiry" name="dateExpiry" required>
          <br>
          <br>
-          <button type="submit">Add Item</button>
+          <button type="submit" id="add item">Add Item</button>
  </form>
  <br>
  <br>
@@ -142,7 +141,7 @@
              <input type="date" id="dateExpiry" name="dateExpiry" required>
              <br>
              <br>
-              <button type="submit">Add Item</button>
+              <button type="submit" id="add item">Add Item</button>
      </form>
      <br>
      <br>

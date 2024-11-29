@@ -18,6 +18,29 @@ function openTab(event, tabId) {
     event.currentTarget.classList.add('active');
 }
 
+function saveProducts(products) {
+    localStorage.setItem("products", JSON.stringify(products));
+}
+
+
+function loadProducts() {
+    const products = JSON.parse(localStorage.getItem("products")) || [];
+    const table = document.getElementById("goodsTable").getElementsByTagName("tbody")[0];
+    table.innerHTML = ""; // Clear any existing rows
+
+    products.forEach(product => {
+        const newRow = table.insertRow();
+        newRow.insertCell(0).textContent = product.category;
+        newRow.insertCell(1).textContent = product.productName;
+        newRow.insertCell(2).textContent = product.quantity;
+        newRow.insertCell(3).textContent = product.datePurchased;
+        newRow.insertCell(4).textContent = product.dateExpiry;
+    });
+}
+
+// Load products when the page loads
+document.addEventListener("DOMContentLoaded", loadProducts);
+
 
 document.getElementById('inventoryForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -28,26 +51,15 @@ document.getElementById('inventoryForm').addEventListener('submit', function(eve
     const datePurchased = document.getElementById('datePurchased').value;
     const dateExpiry = document.getElementById('dateExpiry').value;
 
-    const table = document.getElementById('goodsTable').getElementsByTagName('tbody')[0];
-    const newRow = table.insertRow();
+    const products = JSON.parse(localStorage.getItem("products")) || [];
+    products.push({ category, productName, quantity, datePurchased, dateExpiry });
 
-    const cell1 = newRow.insertCell(0);
-    const cell2 = newRow.insertCell(1);
-    const cell3 = newRow.insertCell(2);
-    const cell4 = newRow.insertCell(3);
-    const cell5 = newRow.insertCell(4);
-
-    cell1.textContent = category;
-    cell2.textContent = productName;
-    cell3.textContent = quantity;
-    cell4.textContent = datePurchased;
-    cell5.textContent = dateExpiry;
-
-    document.getElementById('inventoryForm').reset();
+    saveProducts(products); // Save the updated products array to localStorage
+    loadProducts(); // Refresh the table
+    document.getElementById('inventoryForm').reset(); // Reset the form
 });
 
 
-// Open the login modal
 // Open the login modal
 document.querySelector(".profile").addEventListener("click", function () {
     document.getElementById("loginModal").style.display = "block";
@@ -71,12 +83,14 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     e.preventDefault();
     const username = document.getElementById("username").value;
     const email = document.getElementById("email").value;
+    const contact = document.getElementById("contact").value;
     const password = document.getElementById("password").value;
     const rememberMe = document.getElementById("rememberMe").checked;
 
     console.log("Login Details:");
     console.log(`Username: ${username}`);
     console.log(`Email: ${email}`);
+    console.log(`Contact Number: ${contact}`);
     console.log(`Remember Me: ${rememberMe}`);
 
     // Close modal after successful submission
@@ -99,3 +113,39 @@ function showNotificationPopup() {
 function closeNotificationPopup() {
     document.getElementById("notificationModal").style.display = "none";
 }
+
+
+
+// function checkForExpiringProducts() {
+//     const today = new Date();
+//     const table = document.getElementById("goodsTable").getElementsByTagName("tbody")[0];
+//     const rows = table.getElementsByTagName("tr");
+
+//     Array.from(rows).forEach((row) => {
+//         const expiryDate = new Date(row.cells[4].textContent.trim()); // Expiry date from table
+//         const daysToExpiry = Math.ceil((expiryDate - today) / (1000 * 60 * 60 * 24)); // Difference in days
+
+//         if (daysToExpiry === 3) {
+//             const productName = row.cells[1].textContent.trim(); // Product Name
+//             sendReminderSMS(productName); // Call function to send SMS
+//         }
+//     });
+// }
+
+// // Mock function to simulate sending an SMS
+// function sendReminderSMS(productName) {
+//     const userContact = document.getElementById("contact").value; // Get the contact number from login
+//     if (!userContact) {
+//         console.error("No contact number provided!");
+//         return;
+//     }
+
+//     // Here, you'd call your backend API to send the SMS
+//     console.log(`Sending SMS to ${userContact}: "Reminder: Your product ${productName} is expiring in 3 days."`);
+// }
+
+// // Call the function periodically (e.g., once a day)
+// setInterval(checkForExpiringProducts, 24 * 60 * 60 * 1000);
+
+
+

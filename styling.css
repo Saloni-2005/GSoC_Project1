@@ -1,4 +1,4 @@
-/* General */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,16 +6,16 @@ body {
     background-color: #f9f9f9;
     line-height: 1.6;
 
-     /*Watermark */
-     background-image: url('logoimg.png'); /* Replace with your logo URL */
+     
+     background-image: url('logoimg.png'); 
      background-repeat: no-repeat;
      background-position: center;
-     background-size: 50%; /* Adjust size as needed */
+     background-size: 50%; 
      background-attachment: fixed;
-     opacity: 0.95; /* Slight transparency for the body background*/
+     opacity: 0.95; 
 }
 
-/* Header */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -74,15 +74,15 @@ header .profile:hover,
 
 .notification-list-container {
     position: absolute;
-    top: 100px; /* Adjust this to position it below the button */
-    right: 10px; /* Position it on the right side of the screen */
+    top: 100px;
+    right: 10px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 0px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: none; /* Hide by default */
-    width: 300px; /* Adjust width to fit your design */
-    z-index: 999; /* Ensure it's above other content */
+    display: none;
+    width: 300px; 
+    z-index: 999; 
 }
 
 .notification-list-container ul {
@@ -107,15 +107,15 @@ header .profile:hover,
     margin-right: 10px;
 }
 
-/* Show notification list when visible */
+
 .notification-list-container.show {
     display: block;
 }
 
 
-/* Modal container */
+
 .modal {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -123,13 +123,13 @@ header .profile:hover,
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    background-color: rgba(0, 0, 0, 0.4); 
 }
 
-/* Modal content box */
+
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
     width: 300px;
@@ -153,7 +153,7 @@ header .profile:hover,
 }
 
 .mod {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -161,10 +161,10 @@ header .profile:hover,
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    background-color: rgba(0, 0, 0, 0.4); 
 }
 
-/* Modal content box */
+
 .mod-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
@@ -175,7 +175,7 @@ header .profile:hover,
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Close button */
+
 .cl-btn {
     color: #aaa;
     float: right;
@@ -245,7 +245,7 @@ header .profile:hover,
 }
 
 
-/* Tabs */
+
 .tabs {
     display: flex;
     justify-content: center;
@@ -272,7 +272,7 @@ header .profile:hover,
     color: #ffffff;
 }
 
-/* Tab Content */
+
 .tab-content {
     display: none;
     padding: 20px;
@@ -328,7 +328,24 @@ form button:hover {
     transform: scale(1.05);
 }
 
-/* Table */
+#contact {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+small {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+
 table {
     width: 100%;
     border-collapse: collapse;
