@@ -1,5 +1,6 @@
-Goods Guardian
-Goods Guardian is an inventory management and tracking web application designed to help users manage their stock and receive reminders when products are about to expire. It allows users to track their goods, manage the quantity, and get timely alerts for expiration dates.
+Goods Guardian:
+
+It is an inventory management and tracking web application designed to help users manage their stock and receive reminders when products are about to expire. It allows users to track their goods, manage the quantity, and get timely alerts for expiration dates.
 
 Key Features
 Stock Management: Manage your inventory by adding and tracking goods in stock, goods to buy, and goods that are about to expire.
